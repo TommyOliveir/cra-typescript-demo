@@ -1,23 +1,23 @@
+import { Name } from "./Person.types"
+
 type PersonListProps = {
-  names: {
-    first: string;
-    last: string;
-  }[];
-};
+  names: Name[]
+}
 
 export const PersonList = (props: PersonListProps) => {
   return (
     <>
+      <p className="note">Array of object Types props</p>
       <div>
         {props.names.map((name) => {
           return (
-            <h2>
+            <h2 key={name.first}>
               {name.first} {name.last}
             </h2>
-          );
+          )
         })}
       </div>
       <hr></hr>
     </>
-  );
-};
+  )
+}
