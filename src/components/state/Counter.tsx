@@ -11,7 +11,6 @@ type UpdateAction = {
 
 type ResetAction = {
   type:  'RESET'
-  payload?: number // payload is optional for 'RESET' action
 }
 
 type CounterAction = UpdateAction | ResetAction
