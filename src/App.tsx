@@ -16,6 +16,13 @@ import { Box } from './components/context/Box'
 import { ThemeContextProvider } from './components/context/ThemeContext'
 import { UserContextProvider } from './components/context/UserContext'
 import { User2 } from './components/context/User2'
+import { DomRef } from './components/ref/DomRef'
+import { MutableRef } from './components/ref/MutableRef'
+import { CounterClass } from './components/class/CounterClass'
+import { Private } from './components/auth/Private'
+import { Profile } from './components/auth/Profile'
+import { List } from './components/generics/List'
+import { RandomNumber } from './components/restriction/RandomNumber'
 
 function App() {
   const PersonName = {
@@ -65,6 +72,36 @@ function App() {
       <UserContextProvider>
         <User2 />
       </UserContextProvider>
+      <DomRef />
+      <MutableRef />
+      <CounterClass message="The count value is" />
+      <Private isLoggedIn={true} Component={Profile} />
+      {/* <List
+        items={['Batman', 'Superman', 'Wonder Woman']}
+        onClick={item => console.log(item)}
+      />
+      <List items={[1, 2, 3]} onClick={item => console.log(item)} /> */}
+      <List
+        items={[
+          {
+            id: 1,
+            first: 'Bruce',
+            last: 'Wayne',
+          },
+          {
+            id: 2,
+            first: 'Clark',
+            last: 'Kent',
+          },
+          {
+            id: 3,
+            first: 'Princess',
+            last: 'Diana',
+          },
+        ]}
+        onClick={(item) => console.log(item)}
+      />
+      <RandomNumber value={10} isPositive />
     </>
   )
 }
